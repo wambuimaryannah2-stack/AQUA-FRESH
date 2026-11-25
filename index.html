@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#073b4c" />
+  <title>AQUAR Fresh — Pure water, delivered</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="announcement">Fresh water, right when you need it <span>·</span> Simple ordering, convenient delivery</div>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="AQUAR Fresh home"><span class="brand-mark">A</span><span>AQUAR<span class="brand-light">FRESH</span></span></a>
+    <nav class="desktop-nav">
+      <a href="#products">Our water</a><a href="#how">How it works</a><a href="#why">Why AQUAR</a>
+    </nav>
+    <div class="header-actions">
+      <button class="text-button" id="loginOpen">Sign in</button>
+      <button class="button button-small" id="orderNow">Order water <span>↗</span></button>
+      <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR EVERYDAY WATER PARTNER</div>
+        <h1>Good water.<br><em>Good days.</em></h1>
+        <p class="hero-description">Stay refreshed without the extra errands. Choose your water, place your order, and let AQUAR Fresh bring it to your door.</p>
+        <div class="hero-buttons"><button class="button" id="heroOrder">Explore water <span>↗</span></button><a class="under-link" href="#how">See how it works <span>↓</span></a></div>
+        <div class="hero-proof"><div class="proof-avatars"><span>✦</span><span>◉</span><span>✧</span></div><div><strong>Made for everyday refreshment</strong><small>Easy ordering. Convenient delivery.</small></div></div>
+      </div>
+      <div class="hero-art">
+        <div class="art-glow"></div><div class="water-orbit orbit-one"></div><div class="water-orbit orbit-two"></div>
+        <div class="water-bottle"><div class="bottle-cap"></div><div class="bottle-neck"></div><div class="bottle-body"><div class="bottle-shine"></div><div class="bottle-label"><span class="label-drop">◆</span><b>AQUAR</b><small>PURE REFRESHMENT</small></div><div class="water-line"></div></div></div>
+        <div class="floating-note note-top"><span class="note-icon">✦</span><span><b>Refresh your routine</b><small>Water made convenient</small></span></div>
+        <div class="floating-note note-bottom"><span class="note-icon">滴</span><span><b>Choose your size</b><small>10 L · 20 L · 5 L</small></span></div>
+        <div class="art-caption">A LITTLE MORE REFRESHMENT IN EVERY DAY</div>
+      </div>
+    </section>
+
+    <section class="trust-strip"><div><b>01</b><span>Choose your water</span></div><i></i><div><b>02</b><span>Place your order</span></div><i></i><div><b>03</b><span>Get it delivered</span></div></section>
+
+    <section class="section products-section" id="products">
+      <div class="section-heading"><div><div class="eyebrow">THE AQUAR SELECTION</div><h2>Find your <em>refreshment.</em></h2></div><p>Pick the size that fits your day. Your next refill is just a few clicks away.</p></div>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <section class="how-section" id="how">
+      <div class="how-intro"><div class="eyebrow light-eyebrow">A REFRESHINGLY SIMPLE ROUTINE</div><h2>Water on your<br><em>terms.</em></h2><p>From choosing a refill to following your order, AQUAR keeps the process straightforward.</p><button class="button button-light" id="howOrder">Place an order <span>↗</span></button></div>
+      <div class="steps">
+        <article class="step"><span class="step-no">01</span><div class="step-icon">◈</div><h3>Choose your water</h3><p>Browse available water options and select the size and quantity you need.</p></article>
+        <article class="step"><span class="step-no">02</span><div class="step-icon">⌁</div><h3>Checkout with ease</h3><p>Add your delivery location and choose M-Pesa or cash as your payment preference.</p></article>
+        <article class="step"><span class="step-no">03</span><div class="step-icon">↗</div><h3>Follow your order</h3><p>Check your order status as it moves from confirmation to delivery.</p></article>
+      </div>
+    </section>
+
+    <section class="why-section" id="why"><div class="why-art"><div class="circle-water"><span>滴</span></div><div class="why-stamp">AQUAR<br>FRESH<br>EVERY DAY</div></div><div class="why-copy"><div class="eyebrow">WHY AQUAR FRESH</div><h2>Less running around.<br><em>More living.</em></h2><p>Getting your drinking water should fit into your life, not interrupt it. AQUAR Fresh brings product selection, ordering and delivery updates together in one convenient place.</p><div class="benefit-list"><div><span>✓</span><p><b>Simple product choices</b><small>Clear sizes and upfront prices.</small></p></div><div><span>✓</span><p><b>Convenient checkout</b><small>Choose your preferred payment method.</small></p></div><div><span>✓</span><p><b>Order visibility</b><small>Keep up with your order status.</small></p></div></div></div></section>
+  </main>
+
+  <footer class="footer"><a class="brand footer-brand" href="#"><span class="brand-mark">A</span><span>AQUAR<span class="brand-light">FRESH</span></span></a><p>Good water. Good days.</p><span class="copyright">© 2026 AQUAR Fresh. All rights reserved.</span></footer>
+
+  <div class="modal-backdrop hidden" id="modalBackdrop">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+      <div id="modalContent"></div>
+    </section>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
