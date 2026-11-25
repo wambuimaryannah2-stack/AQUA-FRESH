@@ -1,3 +1,1027 @@
 *{box-sizing:border-box} :root{--navy:#073b4c;--deep:#062f3e;--blue:#087f9c;--cyan:#a9e5e8;--mint:#dff5f1;--ink:#102f3b;--muted:#657b83;--paper:#fbfdfc;--line:#e3eeec} html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",sans-serif}.announcement{height:34px;background:var(--deep);color:#d9eeee;text-align:center;font-size:11px;letter-spacing:.07em;padding:9px}.announcement span{padding:0 10px;color:#7dc8cb}.site-header{height:82px;display:flex;align-items:center;justify-content:space-between;padding:0 7.5%;background:#fff;border-bottom:1px solid #edf2f1;position:sticky;top:0;z-index:10}.brand{display:flex;align-items:center;gap:10px;color:var(--navy);text-decoration:none;font-family:Manrope,sans-serif;font-weight:800;letter-spacing:.09em;font-size:16px}.brand-mark{display:grid;place-items:center;width:34px;height:34px;border-radius:11px 11px 11px 3px;background:var(--navy);color:#b9eeee;font-size:19px}.brand-light{font-weight:500;color:#4f8790;margin-left:3px}.desktop-nav{display:flex;gap:36px}.desktop-nav a,.under-link{font-size:13px;color:#45616a;text-decoration:none}.desktop-nav a:hover,.under-link:hover{color:var(--blue)}.header-actions{display:flex;align-items:center;gap:22px}.text-button{border:0;background:none;color:var(--ink);font:600 13px "DM Sans";cursor:pointer}.button{border:0;border-radius:7px;background:var(--navy);color:white;padding:15px 22px;font:700 13px "DM Sans";cursor:pointer;box-shadow:0 7px 18px #073b4c20;transition:.2s}.button:hover{background:#0b566a;transform:translateY(-1px)}.button span{padding-left:16px;color:#9ce1df}.button-small{padding:12px 17px}.mobile-menu{display:none;background:none;border:0;font-size:23px;color:var(--navy)}.hero{padding:75px 9% 68px;display:grid;grid-template-columns:1fr 1fr;min-height:560px;align-items:center;gap:5%}.eyebrow{font-size:10px;font-weight:700;letter-spacing:.19em;color:#4d9298;display:flex;align-items:center;gap:9px}.eyebrow-dot{width:7px;height:7px;border-radius:50%;background:#45b9b2;box-shadow:0 0 0 4px #dff5f1}.hero h1,.section-heading h2,.how-intro h2,.why-copy h2{font-family:Manrope,sans-serif;font-size:clamp(48px,5.3vw,72px);line-height:1.04;letter-spacing:-.055em;color:var(--navy);margin:25px 0 18px;font-weight:800}.hero h1 em,.section-heading h2 em,.how-intro h2 em,.why-copy h2 em{font-style:normal;color:#3c9da0}.hero-description{max-width:450px;color:#60777e;line-height:1.8;font-size:15px}.hero-buttons{display:flex;align-items:center;gap:27px;margin-top:30px}.under-link{font-weight:700}.under-link span{padding-left:8px;color:#3c9da0}.hero-proof{display:flex;align-items:center;gap:13px;margin-top:45px}.proof-avatars{display:flex}.proof-avatars span{width:30px;height:30px;border:2px solid white;border-radius:50%;display:grid;place-items:center;background:#d8f0e9;color:#087f83;margin-left:-5px;font-size:13px}.proof-avatars span:first-child{margin-left:0;background:#dcecf5}.proof-avatars span:last-child{background:#e7e6d6}.hero-proof strong,.hero-proof small{display:block}.hero-proof strong{font-size:11px;color:#31525c}.hero-proof small{font-size:10px;color:#82949a;margin-top:3px}.hero-art{height:440px;position:relative;display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse at 52% 51%,#d5f1ed 0,#e9f7f3 34%,#f7fbf9 68%,transparent 69%)}.art-glow{position:absolute;width:310px;height:310px;border-radius:50%;background:#b4e5e3;filter:blur(32px);opacity:.45}.water-orbit{position:absolute;border:1px solid #a7dcd7;border-radius:50%;transform:rotate(-25deg)}.orbit-one{width:390px;height:180px}.orbit-two{width:330px;height:290px;transform:rotate(38deg);border-color:#c1e5df}.water-bottle{position:relative;width:155px;height:320px;z-index:2;filter:drop-shadow(22px 24px 16px #0a526022)}.bottle-cap{position:absolute;top:0;left:58px;width:40px;height:21px;background:linear-gradient(90deg,#087f94,#4cb7b6,#087f94);border-radius:5px 5px 2px 2px}.bottle-neck{position:absolute;top:17px;left:48px;width:60px;height:46px;background:linear-gradient(90deg,#b4e4e2,#e8ffff 40%,#75c6c4);border-radius:8px 8px 0 0}.bottle-body{position:absolute;top:53px;left:0;width:155px;height:260px;border-radius:28px 28px 35px 35px;background:linear-gradient(90deg,#7bc6c6 0,#d9ffff 19%,#a8e4e3 47%,#e8ffff 72%,#69b9bd 100%);border:2px solid #b8e8e4;overflow:hidden}.bottle-shine{position:absolute;top:17px;left:17px;width:13px;height:190px;background:#fff9;border-radius:100%;filter:blur(4px)}.bottle-label{position:absolute;top:88px;left:0;right:0;height:78px;background:#f5ffffe8;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--navy);letter-spacing:.15em}.label-drop{font-size:15px;color:#40aeb0}.bottle-label b{font:800 18px Manrope}.bottle-label small{font-size:6px;letter-spacing:.22em;margin-top:3px}.water-line{position:absolute;bottom:0;height:60px;width:100%;background:#6fc8cb55;border-radius:45% 45% 0 0}.floating-note{position:absolute;z-index:3;background:#ffffffed;border:1px solid #e4f0ed;border-radius:9px;padding:12px 15px;display:flex;align-items:center;gap:10px;box-shadow:0 12px 30px #174c4c12}.note-top{top:85px;right:0}.note-bottom{bottom:75px;left:0}.note-icon{width:32px;height:32px;border-radius:8px;background:#e2f5f0;color:#198c91;display:grid;place-items:center;font-size:17px}.floating-note b,.floating-note small{display:block}.floating-note b{font-size:10px;color:#244751}.floating-note small{font-size:9px;color:#82969a;margin-top:4px}.art-caption{position:absolute;bottom:16px;right:20px;font-size:8px;letter-spacing:.2em;color:#78a7a5}.trust-strip{margin:0 9%;border-top:1px solid var(--line);border-bottom:1px solid var(--line);height:78px;display:flex;align-items:center;justify-content:center;gap:45px}.trust-strip div{display:flex;align-items:center;gap:13px;font-size:12px;color:#42616a;font-weight:600}.trust-strip b{font:800 12px Manrope;color:#56a8a4}.trust-strip i{height:20px;width:1px;background:#dce9e6}.section{padding:100px 9%}.section-heading{display:flex;justify-content:space-between;align-items:end;margin-bottom:38px}.section-heading h2,.why-copy h2{font-size:46px;margin:14px 0 0}.section-heading>p{max-width:320px;font-size:13px;line-height:1.8;color:var(--muted);margin:0 0 5px}.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.product-card{background:#fff;border:1px solid #e6efed;border-radius:12px;padding:22px;transition:.2s}.product-card:hover{transform:translateY(-4px);box-shadow:0 15px 35px #0c48500c}.product-visual{height:170px;border-radius:9px;background:linear-gradient(145deg,#e8f7f3,#f4fbfa);display:grid;place-items:center;position:relative;overflow:hidden}.product-visual:before{content:"";position:absolute;width:145px;height:145px;border:1px solid #c8e9e3;border-radius:50%}.mini-bottle{width:55px;height:112px;border-radius:10px 10px 13px 13px;background:linear-gradient(90deg,#81c9c7,#e2ffff 45%,#73b9bb);position:relative;box-shadow:12px 13px 14px #1c66751a}.mini-bottle:before{content:"";position:absolute;top:-13px;left:16px;width:23px;height:17px;background:#4eaaa9;border-radius:4px 4px 0 0}.mini-bottle:after{content:"AQUAR";position:absolute;top:44px;left:0;right:0;background:#f4ffff;color:#14616b;text-align:center;font:800 8px Manrope;padding:7px 0}.mini-bottle.large{height:125px;width:75px}.mini-bottle.small{height:95px;width:48px}.product-tag{position:absolute;top:13px;left:13px;background:#fff;color:#4a9291;border-radius:20px;padding:6px 9px;font-size:9px;font-weight:700}.product-info{display:flex;justify-content:space-between;align-items:start;margin-top:18px}.product-info h3{font:700 16px Manrope;margin:0;color:var(--navy)}.product-info p{font-size:11px;color:#7d9196;margin:5px 0}.price{font:800 17px Manrope;color:var(--navy);white-space:nowrap}.price small{font:500 9px "DM Sans";color:#819398}.product-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:18px;padding-top:14px;border-top:1px solid #edf2f0}.product-bottom span{font-size:10px;color:#739096}.add-button{border:0;border-radius:6px;background:#e5f5f1;color:#137e83;padding:9px 13px;font:700 11px "DM Sans";cursor:pointer}.add-button:hover{background:#cdece5}.how-section{background:var(--navy);color:white;padding:85px 9%;display:grid;grid-template-columns:.8fr 1.5fr;gap:8%;align-items:center}.light-eyebrow{color:#8dd1cb}.how-intro h2{font-size:48px;color:white;margin:20px 0}.how-intro h2 em{color:#86d4ce}.how-intro p{max-width:290px;color:#b7d0d2;font-size:13px;line-height:1.8;margin-bottom:27px}.button-light{background:#d7f2ec;color:var(--navy);box-shadow:none}.button-light span{color:#218c8d}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.step{border-left:1px solid #ffffff32;padding-left:20px;position:relative}.step-no{font:700 10px Manrope;color:#7fcac5;letter-spacing:.1em}.step-icon{width:42px;height:42px;border-radius:11px;background:#ffffff13;display:grid;place-items:center;color:#9de2d9;font-size:21px;margin:35px 0 20px}.step h3{font:700 15px Manrope;color:white}.step p{font-size:11px;line-height:1.8;color:#b8d0d1}.why-section{padding:105px 11%;display:grid;grid-template-columns:1fr 1.15fr;gap:10%;align-items:center}.why-art{height:370px;background:#e6f5f0;border-radius:48% 48% 12px 12px;position:relative;display:grid;place-items:center;overflow:hidden}.circle-water{width:230px;height:230px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#eaffff,#85d2cf 65%,#31969e);display:grid;place-items:center;box-shadow:20px 25px 35px #145a5b26,inset -14px -18px 24px #176a7526}.circle-water span{font-size:65px;color:#f3ffff;transform:rotate(15deg)}.why-stamp{position:absolute;right:20px;bottom:24px;background:#fff;border-radius:50%;width:83px;height:83px;display:grid;place-items:center;text-align:center;font:800 9px/1.4 Manrope;letter-spacing:.1em;color:#2b8185;transform:rotate(10deg);box-shadow:0 6px 20px #174c4c12}.why-copy h2{font-size:43px;line-height:1.12}.why-copy>p{font-size:13px;line-height:1.9;color:var(--muted);max-width:480px;margin:18px 0 24px}.benefit-list{display:grid;gap:14px}.benefit-list>div{display:flex;gap:12px;align-items:center}.benefit-list>div>span{width:24px;height:24px;display:grid;place-items:center;background:#e0f4ee;color:#138b85;border-radius:50%;font-size:12px}.benefit-list p{margin:0}.benefit-list b,.benefit-list small{display:block}.benefit-list b{font-size:12px;color:#244751}.benefit-list small{font-size:10px;color:#83969a;margin-top:4px}.footer{padding:30px 9%;background:#f0f7f4;display:flex;align-items:center;justify-content:space-between}.footer p{font-size:11px;color:#70878b}.copyright{font-size:10px;color:#8ca0a1}.modal-backdrop{position:fixed;inset:0;background:#062c38a8;z-index:30;display:grid;place-items:center;padding:18px}.hidden{display:none!important}.modal{width:min(540px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:14px;padding:34px;position:relative;box-shadow:0 25px 80px #001e2a55}.modal-close{position:absolute;right:17px;top:13px;border:0;background:none;font-size:27px;color:#789096;cursor:pointer}.modal h2{font:800 26px Manrope;color:var(--navy);margin:0 0 7px}.modal-sub{font-size:12px;color:#71868b;line-height:1.6;margin:0 0 23px}.field{display:grid;gap:7px;margin:14px 0}.field label{font-size:11px;font-weight:700;color:#49646b}.field input,.field select{width:100%;border:1px solid #dce9e6;border-radius:7px;padding:13px;font:13px "DM Sans";outline:none;background:#fbfdfc}.field input:focus,.field select:focus{border-color:#4ba9a7;box-shadow:0 0 0 3px #dff5f1}.role-row{display:flex;gap:8px;margin:12px 0 20px}.role-option{flex:1;border:1px solid #dce9e6;border-radius:7px;padding:10px;background:white;color:#5e777d;font:600 11px "DM Sans";cursor:pointer}.role-option.active{border-color:#188c90;background:#e8f7f3;color:#126e76}.modal-submit{width:100%;margin-top:12px}.modal-link{border:0;background:none;color:#16858a;font:600 11px "DM Sans";cursor:pointer;margin-top:14px}.cart-line,.order-line{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid #edf2f0;font-size:12px}.cart-line strong,.order-line strong{color:var(--navy)}.qty-controls{display:flex;align-items:center;gap:9px}.qty-controls button{border:0;background:#e6f5f1;border-radius:5px;width:24px;height:24px;color:#137e83;cursor:pointer}.total-line{display:flex;justify-content:space-between;font:800 16px Manrope;color:var(--navy);padding:18px 0}.status{font-size:10px;padding:5px 8px;border-radius:20px;background:#e6f5f1;color:#177b79;white-space:nowrap}.dashboard-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:18px 0}.stat{background:#f0f8f5;border-radius:8px;padding:13px}.stat small{display:block;color:#779096;font-size:9px}.stat b{display:block;color:var(--navy);font:800 20px Manrope;margin-top:6px}.empty-state{text-align:center;padding:24px;color:#789096;font-size:12px}.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,20px);opacity:0;background:#073b4c;color:white;padding:12px 18px;border-radius:7px;font-size:12px;z-index:50;transition:.25s;pointer-events:none}.toast.show{opacity:1;transform:translate(-50%,0)}.mobile-links{display:none}
 @media(max-width:850px){.site-header{padding:0 5%}.desktop-nav{gap:17px}.hero{padding:55px 6%;gap:2%}.hero-art{height:370px}.floating-note{transform:scale(.88)}.trust-strip{margin:0 6%;gap:20px}.section{padding:75px 6%}.how-section{padding:70px 6%;grid-template-columns:1fr;gap:40px}.steps{gap:16px}.why-section{padding:75px 7%;gap:6%}.why-art{height:310px}.why-copy h2{font-size:36px}}
 @media(max-width:620px){.announcement{font-size:9px}.site-header{height:68px}.desktop-nav,.text-button,.header-actions>.button{display:none}.mobile-menu{display:block}.hero{grid-template-columns:1fr;padding:55px 7% 35px}.hero h1{font-size:56px}.hero-art{height:350px;margin-top:10px}.note-top{right:0;top:45px}.note-bottom{left:0;bottom:45px}.trust-strip{height:auto;padding:18px 0;gap:11px;justify-content:space-between}.trust-strip div{gap:6px;font-size:9px}.trust-strip b{font-size:10px}.trust-strip i{height:17px}.section{padding:65px 7%}.section-heading{display:block}.section-heading h2{font-size:38px}.section-heading>p{margin-top:15px}.product-grid{grid-template-columns:1fr}.product-visual{height:155px}.how-section{padding:65px 7%}.how-intro h2{font-size:43px}.steps{grid-template-columns:1fr;gap:25px}.step{padding-left:17px}.step-icon{margin:15px 0}.step h3{margin:0 0 6px}.step p{margin:0}.why-section{grid-template-columns:1fr;padding:65px 7%;gap:35px}.why-art{height:280px}.why-copy h2{font-size:38px}.footer{padding:26px 7%;flex-wrap:wrap;gap:12px}.footer p{display:none}.copyright{width:100%}.modal{padding:28px 22px}.dashboard-stats{grid-template-columns:1fr 1fr}.mobile-links{display:flex;position:absolute;top:68px;left:0;right:0;background:#fff;padding:15px 7%;gap:20px;box-shadow:0 12px 18px #062f3e12}.mobile-links a{font-size:12px;color:#45616a;text-decoration:none}}
+
+/* =========================================
+   AQUAR FRESH — PREMIUM WEBSITE EXPERIENCE
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+body:has(.dashboard),
+body:has(.auth-container) {
+    font-family: 'DM Sans', sans-serif;
+    background: #f3f8f8;
+    color: #153b40;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* AUTHENTICATION PAGES */
+
+body:has(.auth-container) {
+    background:
+        radial-gradient(circle at 10% 10%, #b5e8e2 0, transparent 35%),
+        linear-gradient(135deg, #063b43, #087c80);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 18px;
+}
+
+.auth-container {
+    background: #ffffff;
+    width: 100%;
+    max-width: 440px;
+    padding: 46px 40px;
+    border-radius: 24px;
+    box-shadow: 0 25px 80px rgba(0, 25, 30, .25);
+    box-sizing: border-box;
+}
+
+.auth-container h1 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    color: #073e46;
+    margin: 0 0 10px;
+    letter-spacing: -1px;
+}
+
+.auth-container > p {
+    color: #789093;
+    margin-bottom: 28px;
+}
+
+.auth-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.auth-container label,
+.dashboard label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #31575b;
+    margin-top: 8px;
+}
+
+.auth-container input,
+.dashboard input,
+.dashboard textarea,
+.dashboard select {
+    width: 100%;
+    padding: 14px 15px;
+    border: 1px solid #dce9e8;
+    border-radius: 11px;
+    background: #f8fbfb;
+    font: inherit;
+    color: #153b40;
+    outline: none;
+    box-sizing: border-box;
+    transition: .2s ease;
+}
+
+.auth-container input:focus,
+.dashboard input:focus,
+.dashboard textarea:focus,
+.dashboard select:focus {
+    border-color: #16a6a0;
+    box-shadow: 0 0 0 4px rgba(22, 166, 160, .10);
+    background: white;
+}
+
+.auth-container button,
+.dashboard button {
+    border: none;
+    border-radius: 11px;
+    padding: 14px 20px;
+    margin-top: 12px;
+    background: #087d80;
+    color: white;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.auth-container button:hover,
+.dashboard button:hover {
+    background: #065b63;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(8, 125, 128, .18);
+}
+
+.auth-container a,
+.dashboard a {
+    color: #078b8c;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.auth-container a:hover,
+.dashboard a:hover {
+    text-decoration: underline;
+}
+
+.auth-container #message,
+.dashboard #message {
+    color: #087d80;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* DASHBOARD LAYOUT */
+
+body:has(.dashboard) {
+    padding: 35px 22px;
+}
+
+.dashboard {
+    max-width: 1120px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 38px;
+    border-radius: 22px;
+    box-shadow: 0 12px 45px rgba(19, 61, 65, .07);
+    box-sizing: border-box;
+}
+
+.dashboard header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e8f0ef;
+    margin-bottom: 30px;
+}
+
+.dashboard header h1,
+.dashboard > h1 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 29px;
+    color: #073e46;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.dashboard h2 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 21px;
+    color: #104c52;
+    margin: 28px 0 18px;
+}
+
+.dashboard h3 {
+    color: #13535a;
+}
+
+/* PRODUCT AND ORDER CARDS */
+
+#products,
+#orders {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+#products article,
+#orders article {
+    background: #ffffff;
+    border: 1px solid #e4efed;
+    border-radius: 17px;
+    padding: 23px;
+    box-shadow: 0 5px 20px rgba(15, 65, 65, .045);
+    transition: .25s ease;
+}
+
+#products article:hover,
+#orders article:hover {
+    transform: translateY(-4px);
+    border-color: #9bd9d2;
+    box-shadow: 0 12px 28px rgba(15, 65, 65, .09);
+}
+
+#products article h3,
+#orders article h2 {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+}
+
+#products article p {
+    font-size: 19px;
+    font-weight: 800;
+    color: #078b83;
+}
+
+#products article button,
+#orders article button {
+    width: 100%;
+}
+
+/* CART AND CHECKOUT */
+
+#cart {
+    background: #f3f9f8;
+    border-radius: 14px;
+    padding: 18px;
+    margin-top: 15px;
+}
+
+#cart p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#cart button {
+    background: #e7f3f1;
+    color: #087d80;
+    padding: 9px 13px;
+}
+
+.dashboard form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 600px;
+}
+
+.dashboard textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.dashboard form button {
+    margin-top: 15px;
+}
+
+/* ORDER STATUS */
+
+#orders article strong {
+    color: #078b83;
+}
+
+#orders article select {
+    margin-top: 10px;
+}
+
+.dashboard hr {
+    border: none;
+    border-top: 1px solid #e9f0ef;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 650px) {
+    body:has(.dashboard) {
+        padding: 12px;
+    }
+
+    .dashboard {
+        padding: 22px 17px;
+        border-radius: 16px;
+    }
+
+    .dashboard header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .dashboard header h1,
+    .dashboard > h1 {
+        font-size: 24px;
+    }
+
+    .auth-container {
+        padding: 32px 23px;
+    }
+
+    #products,
+    #orders {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* AQUAR PREMIUM HOMEPAGE HEADER */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 17px 7%;
+    background: rgba(255, 255, 255, .96);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid #e7f0ef;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #073e46;
+    font-family: 'Manrope', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: -1px;
+}
+
+.brand-icon {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    background: #087d80;
+    color: white;
+    border-radius: 12px;
+    font-size: 22px;
+}
+
+.brand-light {
+    color: #0caaa1;
+    margin-left: 4px;
+}
+
+.main-nav,
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.main-nav a,
+.login-link {
+    text-decoration: none;
+    color: #41666a;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.main-nav a:hover,
+.login-link:hover {
+    color: #079b93;
+}
+
+.header-cta {
+    background: #087d80;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    transition: .2s ease;
+}
+
+.header-cta:hover {
+    background: #06565e;
+    transform: translateY(-2px);
+}
+
+@media(max-width: 700px) {
+    .site-header {
+        flex-wrap: wrap;
+        padding: 14px 5%;
+    }
+
+    .main-nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .main-nav a {
+        font-size: 12px;
+    }
+}
+
+
+/* AQUAR PREMIUM HERO */
+
+.hero {
+    min-height: 620px;
+    padding: 85px 8%;
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    align-items: center;
+    gap: 60px;
+    background: linear-gradient(135deg, #f1fbf9, #e1f4f0);
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 620px;
+}
+
+.hero-tag {
+    display: inline-block;
+    color: #078b83;
+    background: #d8f1eb;
+    padding: 9px 15px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.hero-content h1 {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.12;
+    letter-spacing: -3px;
+    color: #073e46;
+    margin: 25px 0;
+}
+
+.hero-content h1 span {
+    color: #079b93;
+}
+
+.hero-content > p {
+    max-width: 490px;
+    color: #668185;
+    line-height: 1.9;
+    font-size: 16px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+    margin-top: 32px;
+}
+
+.hero-primary,
+.hero-secondary {
+    padding: 15px 23px;
+    border-radius: 11px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.hero-primary {
+    color: white;
+    background: #087d80;
+    box-shadow: 0 10px 25px rgba(8, 125, 128, .2);
+}
+
+.hero-primary:hover {
+    background: #06565e;
+}
+
+.hero-secondary {
+    color: #15545a;
+    border: 1px solid #b9d9d4;
+    background: white;
+}
+
+.hero-trust {
+    display: flex;
+    gap: 35px;
+    margin-top: 55px;
+    flex-wrap: wrap;
+}
+
+.hero-trust div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hero-trust strong {
+    font-family: 'Manrope', sans-serif;
+    color: #087d80;
+    font-size: 20px;
+}
+
+.hero-trust span {
+    font-size: 11px;
+    color: #779294;
+}
+
+.hero-visual {
+    min-height: 400px;
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+
+.water-circle {
+    position: absolute;
+    width: min(370px, 80vw);
+    height: min(370px, 80vw);
+    border-radius: 50%;
+    background: linear-gradient(145deg, #a9e5dc, #4cbab2);
+    box-shadow: 0 35px 80px rgba(17, 123, 119, .16);
+}
+
+.hero-water-card {
+    position: relative;
+    width: 255px;
+    min-height: 335px;
+    box-sizing: border-box;
+    padding: 28px;
+    border-radius: 28px;
+    background: linear-gradient(155deg, #ffffff, #e7f8f4);
+    box-shadow: 0 30px 60px rgba(0, 61, 65, .19);
+    text-align: center;
+    transform: rotate(-5deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.water-drop {
+    font-size: 70px;
+    margin-bottom: 18px;
+}
+
+.hero-water-card > span {
+    color: #079b93;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.hero-water-card h2 {
+    font-family: 'Manrope', sans-serif;
+    color: #073e46;
+    font-size: 24px;
+}
+
+.hero-water-card p {
+    color: #789093;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.water-card-bottom {
+    margin-top: 20px;
+    color: #078b83;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.floating-label {
+    position: absolute;
+    right: 0;
+    bottom: 30px;
+    background: white;
+    color: #087d80;
+    padding: 14px 20px;
+    border-radius: 12px;
+    box-shadow: 0 12px 35px rgba(0, 50, 55, .12);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+@media(max-width: 800px) {
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 65px 7%;
+        gap: 30px;
+    }
+
+    .hero-visual {
+        min-height: 360px;
+    }
+
+    .hero-trust {
+        gap: 20px;
+    }
+
+    .hero-content h1 {
+        letter-spacing: -1.5px;
+    }
+}
+
+
+/* AQUAR PREMIUM FOOTER */
+
+.aquar-footer {
+    background: #073e46;
+    color: white;
+    padding: 65px 8% 22px;
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 50px;
+    padding-bottom: 45px;
+}
+
+.footer-brand .brand {
+    color: white;
+}
+
+.footer-brand p {
+    color: #a5c6c5;
+    line-height: 1.9;
+    font-size: 14px;
+    margin-top: 22px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-links h3 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: #a5c6c5;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: #65d5c8;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.14);
+    padding-top: 22px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+    color: #91b4b4;
+    font-size: 11px;
+}
+
+@media(max-width: 650px) {
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+}
+
+
+/* ADMIN ANALYTICS DASHBOARD */
+
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    margin: 30px 0 40px;
+}
+
+.stat-card {
+    background: white;
+    border: 1px solid #e5eeee;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(7, 59, 76, 0.05);
+}
+
+.stat-card span {
+    color: #71858a;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.stat-card h2 {
+    color: #073b4c;
+    font-size: 28px;
+    margin: 14px 0 0;
+    font-family: 'Manrope', sans-serif;
+}
+
+@media (max-width: 850px) {
+    .admin-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* AQUAR ADMIN DASHBOARD REDESIGN */
+
+.dashboard {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 40px 5%;
+}
+
+.dashboard > header {
+    background: linear-gradient(120deg, #073b4c, #087f78);
+    color: white;
+    padding: 32px;
+    border-radius: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 35px;
+    box-shadow: 0 15px 35px rgba(7,59,76,.13);
+}
+
+.dashboard > header h1 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 28px;
+    margin: 0;
+}
+
+.dashboard > header button {
+    background: white;
+    color: #073b4c;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 22px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    margin: 30px 0 40px;
+}
+
+.stat-card {
+    background: white;
+    border: 1px solid #e3eeee;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(7,59,76,.05);
+    transition: transform .2s, box-shadow .2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(7,59,76,.09);
+}
+
+.stat-card span {
+    color: #71858a;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.stat-card h2 {
+    color: #087f78;
+    font-size: 29px;
+    font-family: 'Manrope', sans-serif;
+    margin: 13px 0 0;
+}
+
+.dashboard > h2 {
+    color: #073b4c;
+    font-family: 'Manrope', sans-serif;
+    font-size: 24px;
+    margin: 35px 0 20px;
+}
+
+#orders article {
+    background: white;
+    border: 1px solid #e3eeee;
+    border-radius: 17px;
+    padding: 25px;
+    margin: 18px 0;
+    box-shadow: 0 7px 22px rgba(7,59,76,.04);
+}
+
+#orders article h3 {
+    color: #087f78;
+    font-family: 'Manrope', sans-serif;
+    font-size: 19px;
+}
+
+#orders article p {
+    color: #60777b;
+    font-size: 14px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+#orders article select {
+    padding: 12px;
+    border: 1px solid #d7e5e4;
+    border-radius: 9px;
+    background: #f8fbfb;
+    margin-right: 10px;
+}
+
+#orders article button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 9px;
+    background: #087f78;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#orders article button:hover {
+    background: #065e59;
+}
+
+#message {
+    color: #087f78;
+    font-weight: 600;
+}
+
+@media(max-width: 850px) {
+    .admin-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media(max-width: 520px) {
+    .admin-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard > header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #orders article select,
+    #orders article button {
+        width: 100%;
+        margin: 7px 0;
+    }
+}
+
+
+/* AQUAR CUSTOMER DASHBOARD */
+
+.dashboard {
+    max-width: 1250px;
+    margin: auto;
+    padding: 40px 5%;
+}
+
+.dashboard h1,
+.dashboard h2 {
+    font-family: 'Manrope', sans-serif;
+    color: #073b4c;
+}
+
+.dashboard h1 {
+    font-size: 30px;
+}
+
+.dashboard > header {
+    background: linear-gradient(120deg, #073b4c, #087f78);
+    color: white;
+    padding: 30px;
+    border-radius: 22px;
+    margin-bottom: 35px;
+}
+
+.dashboard > header h1 {
+    color: white;
+}
+
+.dashboard > header button {
+    background: white;
+    color: #073b4c;
+    border: 0;
+    border-radius: 10px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 24px;
+    margin: 25px 0 40px;
+}
+
+.product-card {
+    background: white;
+    border: 1px solid #e3eeee;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(7,59,76,.05);
+    transition: transform .2s, box-shadow .2s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(7,59,76,.10);
+}
+
+.product-card h3 {
+    color: #073b4c;
+    font-family: 'Manrope', sans-serif;
+}
+
+.product-card p {
+    color: #71858a;
+    line-height: 1.6;
+}
+
+.product-card button,
+.dashboard button.primary-button {
+    background: #087f78;
+    color: white;
+    border: 0;
+    border-radius: 10px;
+    padding: 12px 18px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.product-card button:hover,
+.dashboard button.primary-button:hover {
+    background: #065e59;
+}
+
+.dashboard input,
+.dashboard select,
+.dashboard textarea {
+    border: 1px solid #d7e5e4;
+    border-radius: 10px;
+    padding: 12px;
+    max-width: 100%;
+}
+
+@media(max-width: 600px) {
+    .dashboard {
+        padding: 22px 5%;
+    }
+
+    .dashboard h1 {
+        font-size: 24px;
+    }
+}
+
+
+
+/* AQUAR Fresh water-inspired backgrounds */
+.hero {
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(248, 253, 252, .45) 0%,
+            rgba(248, 253, 252, .20) 45%,
+            rgba(248, 253, 252, .05) 100%
+        ),
+        url("assets/aquar-water-background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0;
+}
+
+.products-section {
+    position: relative;
+    background-image:
+        linear-gradient(rgba(244, 251, 250, .94), rgba(244, 251, 250, .96)),
+        url("assets/aquar-water-background.png");
+    background-size: cover;
+    background-position: center 72%;
+}
+
+.how-section {
+    background-image:
+        linear-gradient(rgba(6, 47, 62, .88), rgba(6, 47, 62, .91)),
+        url("assets/aquar-water-background.png");
+    background-size: cover;
+    background-position: center 70%;
+}
+
+@media (max-width: 620px) {
+    .hero {
+        background-position: 58% center;
+        background-image:
+            linear-gradient(rgba(248, 253, 252, .88), rgba(248, 253, 252, .76)),
+            url("assets/aquar-water-background.png");
+    }
+}

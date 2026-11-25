@@ -12,42 +12,85 @@
 </head>
 <body>
   <div class="announcement">Fresh water, right when you need it <span>·</span> Simple ordering, convenient delivery</div>
-  <header class="site-header">
-    <a class="brand" href="#" aria-label="AQUAR Fresh home"><span class="brand-mark">A</span><span>AQUAR<span class="brand-light">FRESH</span></span></a>
-    <nav class="desktop-nav">
-      <a href="#products">Our water</a><a href="#how">How it works</a><a href="#why">Why AQUAR</a>
+
+<header class="site-header">
+    <a href="index.html" class="brand">
+        <span class="brand-icon">A</span>
+        <span>AQUAR<span class="brand-light">FRESH</span></span>
+    </a>
+
+    <nav class="main-nav">
+        <a href="#home">Home</a>
+        <a href="#products">Our Water</a>
+        <a href="#how-it-works">How It Works</a>
     </nav>
+
     <div class="header-actions">
-      <button class="text-button" id="loginOpen">Sign in</button>
-      <button class="button button-small" id="orderNow">Order water <span>↗</span></button>
-      <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
+        <a href="pages/login.html" class="login-link">Login</a>
+        <a href="pages/register.html" class="header-cta">Get Started ↗</a>
     </div>
-  </header>
+</header>
+
 
   <main>
-    <section class="hero">
-      <div class="hero-copy">
-        <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR EVERYDAY WATER PARTNER</div>
-        <h1>Good water.<br><em>Good days.</em></h1>
-        <p class="hero-description">Stay refreshed without the extra errands. Choose your water, place your order, and let AQUAR Fresh bring it to your door.</p>
-        <div class="hero-buttons"><button class="button" id="heroOrder">Explore water <span>↗</span></button><a class="under-link" href="#how">See how it works <span>↓</span></a></div>
-        <div class="hero-proof"><div class="proof-avatars"><span>✦</span><span>◉</span><span>✧</span></div><div><strong>Made for everyday refreshment</strong><small>Easy ordering. Convenient delivery.</small></div></div>
-      </div>
-      <div class="hero-art">
-        <div class="art-glow"></div><div class="water-orbit orbit-one"></div><div class="water-orbit orbit-two"></div>
-        <div class="water-bottle"><div class="bottle-cap"></div><div class="bottle-neck"></div><div class="bottle-body"><div class="bottle-shine"></div><div class="bottle-label"><span class="label-drop">◆</span><b>AQUAR</b><small>PURE REFRESHMENT</small></div><div class="water-line"></div></div></div>
-        <div class="floating-note note-top"><span class="note-icon">✦</span><span><b>Refresh your routine</b><small>Water made convenient</small></span></div>
-        <div class="floating-note note-bottom"><span class="note-icon">滴</span><span><b>Choose your size</b><small>10 L · 20 L · 5 L</small></span></div>
-        <div class="art-caption">A LITTLE MORE REFRESHMENT IN EVERY DAY</div>
-      </div>
-    </section>
+    
+<section class="hero" id="home">
+    <div class="hero-content">
+        <span class="hero-tag">PURE WATER. FRESH LIVING.</span>
+
+        <h1>Pure hydration.<br>
+            <span>Delivered to your door.</span>
+        </h1>
+
+        <p>
+            Enjoy clean, refreshing drinking water without the hassle.
+            Order your AQUAR Fresh water and let us bring freshness to you.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="pages/customer-dashboard.html" class="hero-primary">
+                Order Water <span>↗</span>
+            </a>
+            <a href="#products" class="hero-secondary">
+                Explore Products
+            </a>
+        </div>
+
+        <div class="hero-trust">
+            <div>
+                <strong>100%</strong>
+                <span>Freshness focused</span>
+            </div>
+            <div>
+                <strong>20L</strong>
+                <span>Family-sized refills</span>
+            </div>
+            <div>
+                <strong>Easy</strong>
+                <span>Home delivery</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-visual">
+        <div class="water-circle"></div>
+        <div class="hero-water-card">
+            <div class="water-drop">💧</div>
+            <span>AQUAR FRESH</span>
+            <h2>Refresh your day.</h2>
+            <p>Clean drinking water, made convenient.</p>
+            <div class="water-card-bottom">PURE • FRESH • EVERYDAY</div>
+        </div>
+        <div class="floating-label">Freshness delivered ✦</div>
+    </div>
+</section>
+
 
     <section class="trust-strip"><div><b>01</b><span>Choose your water</span></div><i></i><div><b>02</b><span>Place your order</span></div><i></i><div><b>03</b><span>Get it delivered</span></div></section>
 
     <section class="section products-section" id="products">
-      <div class="section-heading"><div><div class="eyebrow">THE AQUAR SELECTION</div><h2>Find your <em>refreshment.</em></h2></div><p>Pick the size that fits your day. Your next refill is just a few clicks away.</p></div>
-      <div class="product-grid" id="productGrid"></div>
-    </section>
+    <!-- Paste the new product section content here -->
+</section>
 
     <section class="how-section" id="how">
       <div class="how-intro"><div class="eyebrow light-eyebrow">A REFRESHINGLY SIMPLE ROUTINE</div><h2>Water on your<br><em>terms.</em></h2><p>From choosing a refill to following your order, AQUAR keeps the process straightforward.</p><button class="button button-light" id="howOrder">Place an order <span>↗</span></button></div>
@@ -71,5 +114,39 @@
   </div>
   <div class="toast" id="toast"></div>
   <script src="app.js"></script>
+
+<footer class="aquar-footer">
+    <div class="footer-main">
+        <div class="footer-brand">
+            <a href="index.html" class="brand">
+                <span class="brand-icon">A</span>
+                <span>AQUAR<span class="brand-light">FRESH</span></span>
+            </a>
+            <p>Pure hydration. Fresh living.<br>
+            Bringing quality drinking water closer to you.</p>
+        </div>
+
+        <div class="footer-links">
+            <h3>Explore</h3>
+            <a href="#home">Home</a>
+            <a href="#products">Our Water</a>
+            <a href="pages/login.html">Customer Login</a>
+            <a href="pages/register.html">Create Account</a>
+        </div>
+
+        <div class="footer-links">
+            <h3>Customer Care</h3>
+            <a href="pages/customer-dashboard.html">Order Water</a>
+            <a href="pages/order-tracking.html">Track Orders</a>
+            <a href="mailto:hello@aquarfresh.com">Email Us</a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <span>© 2026 AQUAR Fresh. All rights reserved.</span>
+        <span>PURE · FRESH · EVERYDAY</span>
+    </div>
+</footer>
+
 </body>
 </html>
