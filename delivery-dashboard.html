@@ -1,0 +1,321 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQUAR Fresh | Delivery Dashboard</title>
+    <link rel="stylesheet" href="../styles.css">
+
+    
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f2f7f7;
+    color: #183b40;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.dashboard {
+    max-width: 1250px;
+    margin: auto;
+    padding: 40px 5%;
+}
+
+.delivery-header {
+    background: linear-gradient(120deg, #073b4c, #087f78);
+    color: white;
+    padding: 35px;
+    border-radius: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 35px;
+    box-shadow: 0 15px 35px rgba(7,59,76,.15);
+}
+
+.delivery-header h1 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 30px;
+    margin: 0 0 8px;
+}
+
+.delivery-header p {
+    color: #c1e4df;
+    margin: 0;
+}
+
+.delivery-header button {
+    background: white;
+    color: #073b4c;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 22px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.delivery-summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin-bottom: 45px;
+}
+
+.stat-card {
+    background: white;
+    border: 1px solid #e4eeee;
+    border-radius: 18px;
+    padding: 27px;
+    box-shadow: 0 8px 25px rgba(7,59,76,.04);
+}
+
+.stat-card span {
+    color: #71888b;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.stat-card h2 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 34px;
+    color: #087f78;
+    margin: 12px 0 0;
+}
+
+.dashboard > h2 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 25px;
+    margin-bottom: 22px;
+}
+
+#orders {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.delivery-card {
+    background: white;
+    border: 1px solid #e1ebeb;
+    border-radius: 19px;
+    padding: 26px;
+    margin: 0;
+    box-shadow: 0 8px 25px rgba(7,59,76,.04);
+    transition: transform .2s, box-shadow .2s;
+}
+
+.delivery-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(7,59,76,.09);
+}
+
+.delivery-card h3 {
+    color: #073b4c;
+    font-family: 'Manrope', sans-serif;
+    font-size: 19px;
+    margin: 0 0 20px;
+}
+
+.delivery-card p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #637b7e;
+    margin: 10px 0;
+    overflow-wrap: anywhere;
+}
+
+.delivery-card strong {
+    color: #24494d;
+}
+
+.delivery-card select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d8e6e5;
+    border-radius: 10px;
+    background: #f8fbfb;
+    margin: 17px 0 12px;
+    color: #24494d;
+    font-size: 14px;
+}
+
+.delivery-card button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: #087f78;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s;
+}
+
+.delivery-card button:hover {
+    background: #065e59;
+}
+
+.delivery-message {
+    color: #087f78;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+@media(max-width: 750px) {
+    .delivery-summary,
+    #orders {
+        grid-template-columns: 1fr;
+    }
+
+    .delivery-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .delivery-header h1 {
+        font-size: 24px;
+    }
+
+    .dashboard {
+        padding: 22px 5%;
+    }
+}
+
+</head>
+
+<body>
+<main class="dashboard">
+
+    <header class="delivery-header">
+        <div>
+            <h1>AQUAR Delivery Centre</h1>
+            <p>Manage and complete customer deliveries.</p>
+        </div>
+        <button onclick="logout()">Logout</button>
+    </header>
+
+    <section class="delivery-summary">
+        <article class="stat-card">
+            <span>Available Orders</span>
+            <h2 id="totalOrders">0</h2>
+        </article>
+        <article class="stat-card">
+            <span>Preparing</span>
+            <h2 id="preparingOrders">0</h2>
+        </article>
+        <article class="stat-card">
+            <span>Out for Delivery</span>
+            <h2 id="outOrders">0</h2>
+        </article>
+    </section>
+
+    <h2>Delivery Orders</h2>
+    <p id="message" class="delivery-message"></p>
+    <section id="orders">Loading orders...</section>
+
+</main>
+
+<script>
+const API = "http://127.0.0.1:5000";
+const token = localStorage.getItem("aquarToken");
+const user = JSON.parse(localStorage.getItem("aquarUser") || "null");
+
+if (!token || !user || user.role !== "delivery") {
+    alert("Delivery staff access required.");
+    window.location.href = "login.html";
+}
+
+async function loadOrders() {
+    const container = document.getElementById("orders");
+
+    try {
+        const response = await fetch(`${API}/delivery/orders`, {
+            headers: { "Authorization": `Bearer ${token}` }
+        });
+
+        const orders = await response.json();
+
+        if (!response.ok) {
+            throw new Error(orders.error || "Could not load orders.");
+        }
+
+        document.getElementById("totalOrders").textContent = orders.length;
+        document.getElementById("preparingOrders").textContent =
+            orders.filter(o => o.status === "Preparing" || o.status === "Confirmed").length;
+        document.getElementById("outOrders").textContent =
+            orders.filter(o => o.status === "Out for Delivery").length;
+
+        if (!orders.length) {
+            container.innerHTML = "<p>No orders are currently awaiting delivery.</p>";
+            return;
+        }
+
+        container.innerHTML = orders.map(order => `
+            <article class="delivery-card">
+                <h3>Order ${order.order_number}</h3>
+                <p><strong>Customer:</strong> ${order.customer_name}</p>
+                <p><strong>Phone:</strong> ${order.phone}</p>
+                <p><strong>Delivery address:</strong> ${order.address}</p>
+                <p><strong>Amount:</strong> KSh ${Number(order.total).toLocaleString()}</p>
+                <p><strong>Payment:</strong> ${order.payment_method} (${order.payment_status})</p>
+                <p><strong>Status:</strong> ${order.status}</p>
+
+                <select id="status-${order.id}">
+                    <option value="Out for Delivery">Out for Delivery</option>
+                    <option value="Delivered">Delivered</option>
+                </select>
+
+                <button onclick="updateStatus(${order.id})">
+                    Update Delivery
+                </button>
+            </article>
+        `).join("");
+
+    } catch (error) {
+        container.textContent = error.message;
+    }
+}
+
+async function updateStatus(orderId) {
+    const status = document.getElementById(`status-${orderId}`).value;
+
+    try {
+        const response = await fetch(
+            `${API}/delivery/orders/${orderId}/status`,
+            {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
+                body: JSON.stringify({ status })
+            }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) throw new Error(data.error || "Update failed.");
+
+        document.getElementById("message").textContent = data.message;
+        await loadOrders();
+
+    } catch (error) {
+        document.getElementById("message").textContent = error.message;
+    }
+}
+
+function logout() {
+    localStorage.removeItem("aquarToken");
+    localStorage.removeItem("aquarUser");
+    window.location.href = "login.html";
+}
+
+loadOrders();
+</script>
+</body>
+</html>

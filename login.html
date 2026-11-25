@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQUAR Fresh | Login</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <main class="auth-container">
+        <h1>Welcome Back</h1>
+        <p>Login to your AQUAR Fresh account</p>
+
+        <form id="loginForm">
+            <label>Email</label>
+            <input type="email" id="email" required>
+
+            <label>Password</label>
+            <input type="password" id="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <p id="message"></p>
+        <p>Don't have an account?
+            <a href="register.html">Register here</a>
+        </p>
+    </main>
+
+    <script>
+        const API = "http://127.0.0.1:5000";
+
+        document.getElementById("loginForm").addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            const message = document.getElementById("message");
+            message.textContent = "Logging in...";
+
+            try {
+                const response = await fetch(`${API}/login`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        email: document.getElementById("email").value,
+                        password: document.getElementById("password").value
+                    })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    message.textContent = data.message || "Login failed.";
+                    return;
+                }
+
+                localStorage.setItem("aquarToken", data.token);
+                localStorage.setItem("aquarUser", JSON.stringify(data.user));
+
+                if (data.user.role === "admin") {
+                    window.location.href = "admin-dashboard.html";
+                } else if (data.user.role === "delivery") {
+                    window.location.href = "delivery-dashboard.html";
+                } else {
+                    window.location.href = "customer-dashboard.html";
+                }
+
+            } catch (error) {
+                message.textContent = "Cannot connect to AQUAR server. Make sure the backend is running.";
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQUAR Fresh | Register</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <main class="auth-container">
+        <h1>Create Your Account</h1>
+        <p>Join AQUAR Fresh</p>
+
+        <form id="registerForm">
+            <label>Full Name</label>
+            <input type="text" id="name" required>
+
+            <label>Email</label>
+            <input type="email" id="email" required>
+
+            <label>Phone Number</label>
+            <input type="tel" id="phone" required>
+
+            <label>Password</label>
+            <input type="password" id="password" minlength="8" required>
+
+            <button type="submit">Create Account</button>
+        </form>
+
+        <p id="message"></p>
+        <p>Already registered? <a href="login.html">Login</a></p>
+    </main>
+
+    <script>
+        const API = "http://127.0.0.1:5000";
+
+        document.getElementById("registerForm").addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            const message = document.getElementById("message");
+            message.textContent = "Creating your account...";
+
+            try {
+                const response = await fetch(`${API}/register`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        name: document.getElementById("name").value,
+                        email: document.getElementById("email").value,
+                        phone: document.getElementById("phone").value,
+                        password: document.getElementById("password").value
+                    })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    message.textContent = data.message || "Registration failed.";
+                    return;
+                }
+
+                message.textContent = "Account created! Redirecting to login...";
+                setTimeout(() => {
+                    window.location.href = "login.html";
+                }, 1200);
+
+            } catch (error) {
+                message.textContent = "Cannot connect to AQUAR server. Make sure the backend is running.";
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQUAR Fresh | Customer Dashboard</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <main class="dashboard">
+        <header>
+            <h1>AQUAR Fresh</h1>
+            <p id="welcome">Welcome!</p>
+            <button onclick="logout()">Logout</button>
+        </header>
+
+        <h2>Available Products</h2>
+        <div id="products">Loading products...</div>
+
+        <h2>Your Cart</h2>
+        <div id="cart">Your cart is empty.</div>
+        <h3 id="total">Total: KSh 0</h3>
+        <button onclick="checkout()">Proceed to Checkout</button>
+        <p id="message"></p>
+    </main>
+
+    <script>
+        const API = "http://127.0.0.1:5000";
+        const token = localStorage.getItem("aquarToken");
+        const user = JSON.parse(localStorage.getItem("aquarUser") || "null");
+        let products = [];
+        let cart = [];
+
+        if (!token || !user) {
+            window.location.href = "login.html";
+        } else {
+            document.getElementById("welcome").textContent = "Welcome, " + user.name;
+        }
+
+        async function loadProducts() {
+            try {
+                const response = await fetch(`${API}/products`);
+                if (!response.ok) throw new Error("Product loading failed");
+
+                products = await response.json();
+
+                document.getElementById("products").innerHTML = products.map(product => `
+                    <article>
+                        <h3>${product.name} - ${product.size}</h3>
+                        <p>KSh ${product.price}</p>
+                        <button onclick="addToCart(${product.id})">Add to Cart</button>
+                    </article>
+                `).join("");
+            } catch (error) {
+                document.getElementById("products").textContent = "Could not load products. Check that the backend is running.";
+            }
+        }
+
+        function addToCart(productId) {
+            const product = products.find(item => item.id === productId);
+            const existing = cart.find(item => item.product_id === productId);
+
+            if (existing) {
+                existing.quantity++;
+            } else {
+                cart.push({
+                    product_id: product.id,
+                    name: product.name + " - " + product.size,
+                    price: product.price,
+                    quantity: 1
+                });
+            }
+
+            renderCart();
+        }
+
+        function renderCart() {
+            const cartElement = document.getElementById("cart");
+
+            if (cart.length === 0) {
+                cartElement.textContent = "Your cart is empty.";
+            } else {
+                cartElement.innerHTML = cart.map((item, index) => `
+                    <p>
+                        ${item.name} × ${item.quantity}
+                        <button onclick="removeItem(${index})">Remove</button>
+                    </p>
+                `).join("");
+            }
+
+            const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            document.getElementById("total").textContent = "Total: KSh " + total;
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            renderCart();
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert("Please add a product first.");
+                return;
+            }
+
+            sessionStorage.setItem("aquarCheckoutCart", JSON.stringify(cart));
+            window.location.href = "checkout.html";
+        }
+
+        function logout() {
+            localStorage.removeItem("aquarToken");
+            localStorage.removeItem("aquarUser");
+            window.location.href = "login.html";
+        }
+
+        loadProducts();
+    </script>
+</body>
+</html>

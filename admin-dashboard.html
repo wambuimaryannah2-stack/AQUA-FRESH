@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQUAR Fresh | Admin Dashboard</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <main class="dashboard">
+        <header>
+            <h1>AQUAR Administration</h1>
+            <button onclick="logout()">Logout</button>
+        </header>
+
+        <section class="admin-stats">
+    <article class="stat-card">
+        <span>Total Orders</span>
+        <h2 id="totalOrders">0</h2>
+    </article>
+
+    <article class="stat-card">
+        <span>Completed Sales</span>
+        <h2 id="completedSales">KSh 0</h2>
+    </article>
+
+    <article class="stat-card">
+        <span>Active Orders</span>
+        <h2 id="activeOrders">0</h2>
+    </article>
+
+    <article class="stat-card">
+        <span>Delivered Orders</span>
+        <h2 id="deliveredOrders">0</h2>
+    </article>
+</section>
+
+<h2>All Customer Orders</h2>
+        <div id="orders">Loading orders...</div>
+        <p id="message"></p>
+    </main>
+
+    <script>
+        const API = "http://127.0.0.1:5000";
+        const token = localStorage.getItem("aquarToken");
+        const user = JSON.parse(localStorage.getItem("aquarUser") || "null");
+
+        if (!token || !user || user.role !== "admin") {
+            alert("Administrator access required.");
+            window.location.href = "login.html";
+        }
+
+async function loadStats() {
+    try {
+        const response = await fetch(`${API}/admin/dashboard-stats`, {
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        });
+
+        const stats = await response.json();
+
+        if (!response.ok) {
+            throw new Error(stats.error || "Could not load statistics.");
+        }
+
+        document.getElementById("totalOrders").textContent =
+            stats.total_orders ?? 0;
+
+        document.getElementById("completedSales").textContent =
+            "KSh " + Number(stats.completed_sales || 0).toLocaleString();
+
+        document.getElementById("activeOrders").textContent =
+            stats.active_orders ?? 0;
+
+        document.getElementById("deliveredOrders").textContent =
+            stats.delivered_orders ?? 0;
+
+    } catch (error) {
+        console.error("Statistics error:", error);
+    }
+}
+
+
+        async function loadOrders() {
+            try {
+                const response = await fetch(`${API}/admin/orders`, {
+                    headers: { "Authorization": `Bearer ${token}` }
+                });
+
+                const orders = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(orders.message || "Could not load orders.");
+                }
+
+                const container = document.getElementById("orders");
+
+                if (orders.length === 0) {
+                    container.textContent = "No orders have been placed yet.";
+                    return;
+                }
+
+                container.innerHTML = orders.map(order => `
+                    <article>
+                        <h3>${order.order_number}</h3>
+                        <p>Customer: ${order.customer_name}</p>
+                        <p>Phone: ${order.phone}</p>
+                        <p>Address: ${order.address}</p>
+                        <p>Total: KSh ${order.total}</p>
+                        <p>Payment: ${order.payment_method} (${order.payment_status})</p>
+                        <p>Current status: <strong>${order.status}</strong></p>
+
+                        <select id="status-${order.id}">
+                            ${["Pending", "Confirmed", "Preparing", "Out for Delivery", "Delivered", "Cancelled"].map(status =>
+                                `<option value="${status}" ${status === order.status ? "selected" : ""}>${status}</option>`
+                            ).join("")}
+                        </select>
+
+                        <button onclick="updateStatus(${order.id})">Update Status</button>
+                    </article>
+                    <hr>
+                `).join("");
+
+            } catch (error) {
+                document.getElementById("orders").textContent = error.message;
+            }
+        }
+
+        async function updateStatus(orderId) {
+            const status = document.getElementById(`status-${orderId}`).value;
+            const message = document.getElementById("message");
+
+            try {
+                const response = await fetch(`${API}/admin/orders/${orderId}/status`, {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ status })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.message || "Update failed.");
+                }
+
+                message.textContent = "Order status updated!";
+                loadStats();
+loadOrders();
+
+            } catch (error) {
+                message.textContent = error.message;
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem("aquarToken");
+            localStorage.removeItem("aquarUser");
+            window.location.href = "login.html";
+        }
+
+        loadOrders();
+    </script>
+</body>
+</html>

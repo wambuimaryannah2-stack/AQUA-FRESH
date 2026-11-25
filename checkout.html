@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQUAR Fresh | Checkout</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <main class="dashboard">
+        <h1>Complete Your Order</h1>
+
+        <div id="orderSummary"></div>
+
+        <form id="checkoutForm">
+            <label>Delivery Address</label>
+            <textarea id="address" required placeholder="Enter your full delivery address"></textarea>
+
+            <label>Payment Method</label>
+            <select id="paymentMethod" required>
+                <option value="M-Pesa">M-Pesa</option>
+                <option value="Cash">Cash on Delivery</option>
+            </select>
+
+            <button type="submit">Place Order</button>
+        </form>
+
+        <p id="message"></p>
+    </main>
+
+    <script>
+        const API = "http://127.0.0.1:5000";
+        const token = localStorage.getItem("aquarToken");
+        const cart = JSON.parse(sessionStorage.getItem("aquarCheckoutCart") || "[]");
+
+        if (!token) {
+            window.location.href = "login.html";
+        }
+
+        if (cart.length === 0) {
+            document.getElementById("orderSummary").textContent = "Your cart is empty.";
+            document.getElementById("checkoutForm").style.display = "none";
+        } else {
+            const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+            document.getElementById("orderSummary").innerHTML = `
+                <h2>Order Summary</h2>
+                ${cart.map(item => `<p>${item.name} × ${item.quantity}</p>`).join("")}
+                <h3>Total: KSh ${total}</h3>
+            `;
+        }
+
+        document.getElementById("checkoutForm").addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            const message = document.getElementById("message");
+            const button = event.target.querySelector("button");
+
+            button.disabled = true;
+            message.textContent = "Submitting your order...";
+
+            try {
+                const response = await fetch(`${API}/orders`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        items: cart.map(item => ({
+                            product_id: item.product_id,
+                            quantity: item.quantity
+                        })),
+                        address: document.getElementById("address").value,
+                        payment_method: document.getElementById("paymentMethod").value
+                    })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.message || "Order could not be placed.");
+                }
+
+                sessionStorage.removeItem("aquarCheckoutCart");
+                localStorage.setItem("aquarLastOrderNumber", data.order_number);
+
+                message.textContent = "Order placed! Your order number is " + data.order_number;
+
+                setTimeout(() => {
+                    window.location.href = "order-tracking.html";
+                }, 1500);
+
+            } catch (error) {
+                message.textContent = error.message;
+                button.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

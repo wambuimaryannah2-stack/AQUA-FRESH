@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQUAR Fresh | Order Tracking</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <main class="dashboard">
+        <h1>My Orders</h1>
+        <div id="orders">Loading your orders...</div>
+        <a href="customer-dashboard.html">Continue Shopping</a>
+    </main>
+
+    <script>
+        const API = "http://127.0.0.1:5000";
+        const token = localStorage.getItem("aquarToken");
+
+        if (!token) {
+            window.location.href = "login.html";
+        }
+
+        async function loadOrders() {
+            try {
+                const response = await fetch(`${API}/my-orders`, {
+                    headers: {
+                        "Authorization": `Bearer ${token}`
+                    }
+                });
+
+                const orders = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(orders.message || "Could not load orders.");
+                }
+
+                const container = document.getElementById("orders");
+
+                if (orders.length === 0) {
+                    container.textContent = "You haven't placed any orders yet.";
+                    return;
+                }
+
+                container.innerHTML = orders.map(order => `
+                    <article>
+                        <h2>${order.order_number}</h2>
+                        <p><strong>Status:</strong> ${order.status}</p>
+                        <p><strong>Total:</strong> KSh ${order.total}</p>
+                        <p><strong>Payment:</strong> ${order.payment_method} (${order.payment_status})</p>
+                        <p><strong>Delivery Address:</strong> ${order.address}</p>
+                        <p><strong>Placed:</strong> ${order.created_at}</p>
+                    </article>
+                `).join("");
+
+            } catch (error) {
+                document.getElementById("orders").textContent = error.message;
+            }
+        }
+
+        loadOrders();
+    </script>
+</body>
+</html>
